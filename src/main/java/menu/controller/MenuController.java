@@ -8,5 +8,6 @@ public class MenuController {
 
     public void start() {
         outputView.printStartMessage();
+        outputView.printNameMessage();
     }
 }

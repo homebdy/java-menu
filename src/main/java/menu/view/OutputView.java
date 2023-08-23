@@ -9,6 +9,10 @@ public class OutputView {
         printNewLine();
     }
 
+    public void printNameMessage() {
+        System.out.println(OutputMessage.COACH_NAME);
+    }
+
     private void printNewLine() {
         System.out.println();
     }
