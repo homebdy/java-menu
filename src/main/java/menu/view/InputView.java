@@ -13,4 +13,10 @@ public class InputView {
         return Stream.of(names.split(","))
                 .collect(Collectors.toList());
     }
+
+    public List<String> readExcludedFood() {
+        String foods = Console.readLine();
+        return Stream.of(foods.split(","))
+                .collect(Collectors.toList());
+    }
 }

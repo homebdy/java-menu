@@ -14,6 +14,9 @@ public class MenuController {
         outputView.printStartMessage();
         outputView.printNameMessage();
         List<String> coaches = inputView.readNames();
-        coaches.forEach(outputView::printExcludedFood);
+        coaches.forEach(name -> {
+            outputView.printExcludedFood(name);
+            inputView.readExcludedFood();
+        });
     }
 }
