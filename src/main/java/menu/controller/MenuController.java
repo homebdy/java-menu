@@ -1,5 +1,6 @@
 package menu.controller;
 
+import menu.service.MemberService;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -9,6 +10,7 @@ public class MenuController {
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+    private final MemberService memberService = new MemberService();
 
     public void start() {
         outputView.printStartMessage();
@@ -16,7 +18,7 @@ public class MenuController {
         List<String> coaches = inputView.readNames();
         coaches.forEach(name -> {
             outputView.printExcludedFood(name);
-            inputView.readExcludedFood();
+            memberService.addCoach(name, inputView.readExcludedFood());
         });
     }
 }
