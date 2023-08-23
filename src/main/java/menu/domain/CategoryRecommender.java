@@ -3,25 +3,41 @@ package menu.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.constant.Category;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CategoryRecommender {
 
-    private static final int MAX_RECOMMEND = 5;
+    private static final int RECOMMEND_NUMBER = 5;
+    private static final int MAX_RECOMMEND_COUNT = 2;
 
     private final List<Category> categories;
+    private final Map<Category, Integer> categoriesCount;
 
     public CategoryRecommender() {
+        this.categoriesCount = new EnumMap<>(Category.class);
+        Arrays.stream(Category.values())
+                .forEach(category -> categoriesCount.put(category, 0));
         this.categories = recommendCategory();
     }
 
     private List<Category> recommendCategory() {
         List<Category> categories = new ArrayList<>();
-        for (int i = 0; i < MAX_RECOMMEND; i++) {
-            categories.add(Category.getRecommendFood(Randoms.pickNumberInRange(1, 5)));
+        while (categories.size() < RECOMMEND_NUMBER) {
+            Category recommendCategory = Category.getRecommendFood(Randoms.pickNumberInRange(1, 5));
+            if (isNotThreeTimes(recommendCategory)) {
+                categories.add(recommendCategory);
+                categoriesCount.put(recommendCategory, increaseCount(recommendCategory));
+            }
         }
         return categories;
+    }
+
+    private boolean isNotThreeTimes(Category recommendCategory) {
+        return categoriesCount.get(recommendCategory) < MAX_RECOMMEND_COUNT;
+    }
+
+    private int increaseCount(Category category) {
+        return categoriesCount.get(category) + 1;
     }
 
     public List<Category> getCategories() {
