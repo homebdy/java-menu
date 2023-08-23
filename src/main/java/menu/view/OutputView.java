@@ -13,6 +13,11 @@ public class OutputView {
         System.out.println(OutputMessage.COACH_NAME);
     }
 
+    public void printExcludedFood(String name) {
+        System.out.printf(OutputMessage.EXCLUDED_FOOD.toString(), name);
+
+    }
+
     private void printNewLine() {
         System.out.println();
     }

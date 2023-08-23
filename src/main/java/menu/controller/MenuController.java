@@ -3,6 +3,8 @@ package menu.controller;
 import menu.view.InputView;
 import menu.view.OutputView;
 
+import java.util.List;
+
 public class MenuController {
 
     private final OutputView outputView = new OutputView();
@@ -11,6 +13,7 @@ public class MenuController {
     public void start() {
         outputView.printStartMessage();
         outputView.printNameMessage();
-        inputView.readNames();
+        List<String> coaches = inputView.readNames();
+        coaches.forEach(outputView::printExcludedFood);
     }
 }
