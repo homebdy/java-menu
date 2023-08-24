@@ -23,7 +23,7 @@ public class MenuController {
     private void addCoachAndExcludedFoods() {
         List<Name> coaches = inputView.readNames();
         coaches.forEach(name -> {
-            outputView.printExcludedFood(name.toString());
+            outputView.printExcludedFood(name);
             menuService.addCoach(name, inputView.readExcludedFood());
             outputView.printNewLine();
         });

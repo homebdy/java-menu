@@ -5,6 +5,7 @@ import menu.constant.OutputMessage;
 import menu.constant.ResultElement;
 import menu.domain.Categories;
 import menu.domain.Coaches;
+import menu.domain.Name;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -20,7 +21,7 @@ public class OutputView {
         System.out.println(OutputMessage.COACH_NAME);
     }
 
-    public void printExcludedFood(String name) {
+    public void printExcludedFood(Name name) {
         System.out.printf(OutputMessage.EXCLUDED_FOOD.toString(), name);
 
     }
@@ -59,5 +60,9 @@ public class OutputView {
 
     public void printNewLine() {
         System.out.println();
+    }
+
+    public void printExceptionMessage(String exceptionMessage) {
+        System.out.println(exceptionMessage);
     }
 }

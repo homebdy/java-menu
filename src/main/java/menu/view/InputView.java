@@ -40,7 +40,7 @@ public class InputView {
         try {
             return supplier.get();
         } catch (IllegalArgumentException exception) {
-            System.out.println(exception.getMessage());
+            outputView.printExceptionMessage(exception.getMessage());
             return supplier.get();
         }
     }
