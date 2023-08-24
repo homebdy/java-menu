@@ -18,10 +18,15 @@ public class MenuRecommender {
 
     public void recommendFoods(Coach coach, List<Category> categories) {
         List<String> foods = new ArrayList<>();
-        categories.forEach( (category) -> {
-                        String menu = Randoms.shuffle(Menu.getFoodsByCategory(category)).get(WINNING_NUMBER);
-                        foods.add(menu);
-                    });
+        categories.forEach((category) -> foods.add(getRandomFood(coach, category)));
         recommendResult.put(coach, foods);
+    }
+
+    private String getRandomFood(Coach coach, Category category) {
+        String menu = Randoms.shuffle(Menu.getFoodsByCategory(category)).get(WINNING_NUMBER);
+        while(coach.isExcludedFood(menu)) {
+            menu = Randoms.shuffle(Menu.getFoodsByCategory(category)).get(WINNING_NUMBER);
+        }
+        return menu;
     }
 }
