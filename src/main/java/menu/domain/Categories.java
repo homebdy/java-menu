@@ -6,7 +6,7 @@ import menu.constant.ResultElement;
 
 import java.util.*;
 
-public class CategoryRecommender {
+public class Categories {
 
     private static final int RECOMMEND_NUMBER = 5;
     private static final int MAX_RECOMMEND_COUNT = 2;
@@ -15,7 +15,7 @@ public class CategoryRecommender {
     private final List<Category> categories;
     private final Map<Category, Integer> categoriesCount;
 
-    public CategoryRecommender() {
+    public Categories() {
         this.categoriesCount = new EnumMap<>(Category.class);
         Arrays.stream(Category.values())
                 .forEach(category -> categoriesCount.put(category, 0));
@@ -31,7 +31,7 @@ public class CategoryRecommender {
                 categoriesCount.put(recommendCategory, increaseCount(recommendCategory));
             }
         }
-        return categories;
+        return List.copyOf(categories);
     }
 
     private boolean isNotThreeTimes(Category recommendCategory) {

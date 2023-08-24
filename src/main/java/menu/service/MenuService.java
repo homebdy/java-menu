@@ -1,7 +1,7 @@
 package menu.service;
 
 import menu.constant.Category;
-import menu.domain.CategoryRecommender;
+import menu.domain.Categories;
 import menu.domain.Coaches;
 import menu.domain.Name;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public class MenuService {
 
     private final Coaches coaches = new Coaches();
-    private final CategoryRecommender categoryRecommender = new CategoryRecommender();
+    private final Categories categories = new Categories();
 
     public void addCoach(Name name, List<String> excludedFoods) {
         coaches.addCoach(name, excludedFoods);
@@ -18,12 +18,8 @@ public class MenuService {
 
 
     public void recommendMenus() {
-        List<Category> categories = getRecommendCategory();
-        categories.forEach(this::recommendMenuForCoaches);
-    }
-
-    private List<Category> getRecommendCategory() {
-        return categoryRecommender.getCategories();
+        categories.getCategories()
+                .forEach(this::recommendMenuForCoaches);
     }
 
     private void recommendMenuForCoaches(Category category) {
@@ -31,8 +27,8 @@ public class MenuService {
                 .forEach(coach -> coach.recommendFoods(category));
     }
 
-    public CategoryRecommender getCategories() {
-        return categoryRecommender;
+    public Categories getCategories() {
+        return categories;
     }
 
     public Coaches getCoaches() {

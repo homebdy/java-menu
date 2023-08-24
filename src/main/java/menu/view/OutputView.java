@@ -3,7 +3,7 @@ package menu.view;
 import menu.constant.Days;
 import menu.constant.OutputMessage;
 import menu.constant.ResultElement;
-import menu.domain.CategoryRecommender;
+import menu.domain.Categories;
 import menu.domain.Coaches;
 
 import java.util.Arrays;
@@ -25,7 +25,7 @@ public class OutputView {
 
     }
 
-    public void printResult(CategoryRecommender categories, Coaches coaches) {
+    public void printResult(Categories categories, Coaches coaches) {
         printMenuResultMessage();
         printDays();
         printCategory(categories);
@@ -45,7 +45,7 @@ public class OutputView {
         System.out.println(stringJoiner);
     }
 
-    private void printCategory(CategoryRecommender categories) {
+    private void printCategory(Categories categories) {
         System.out.println(categories);
     }
 
