@@ -36,6 +36,14 @@ public class OutputView {
         System.out.println(categories);
     }
 
+    public void printMenuResultMessage() {
+        System.out.println(OutputMessage.MENU_RESULT);
+    }
+
+    public void printComplete() {
+        System.out.println(OutputMessage.COMPLETE);
+    }
+
     private void printNewLine() {
         System.out.println();
     }
