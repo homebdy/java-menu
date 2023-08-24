@@ -15,16 +15,17 @@ public class MenuService {
         coaches.addCoach(name, excludedFoods);
     }
 
-    public List<Category> getRecommendCategory() {
-        return categoryRecommender.getCategories();
-    }
 
     public void recommendMenus() {
         List<Category> categories = getRecommendCategory();
-        categories.forEach(this::recommend);
+        categories.forEach(this::recommendMenuForCoaches);
     }
 
-    private void recommend(Category category) {
+    private List<Category> getRecommendCategory() {
+        return categoryRecommender.getCategories();
+    }
+
+    private void recommendMenuForCoaches(Category category) {
         coaches.getCoaches()
                 .forEach(coach -> coach.recommendFoods(category));
     }
