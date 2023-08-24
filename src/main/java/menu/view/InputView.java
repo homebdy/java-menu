@@ -1,17 +1,21 @@
 package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import menu.domain.Name;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class InputView {
 
-    public List<String> readNames() {
+    public List<Name> readNames() {
         String names = Console.readLine();
-        return Stream.of(names.split(","))
+        return Arrays.stream(names.split(","))
+                .map(Name::new)
                 .collect(Collectors.toList());
+
     }
 
     public List<String> readExcludedFood() {

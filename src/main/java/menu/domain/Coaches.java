@@ -9,7 +9,7 @@ public class Coaches {
     private static final String NEW_LINE = "\n";
     private final List<Coach> coaches = new ArrayList<>();
 
-    public void addCoach(String name, List<String> excludedFoods) {
+    public void addCoach(Name name, List<String> excludedFoods) {
         coaches.add(new Coach(name, excludedFoods));
     }
 

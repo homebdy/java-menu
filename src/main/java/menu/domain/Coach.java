@@ -13,11 +13,11 @@ public class Coach {
 
     private static final int WINNING_NUMBER = 0;
 
-    private final String name;
+    private final Name name;
     private final List<String> excludedFoods;
     private final List<String> recommendFoods;
 
-    public Coach(String name, List<String> excludedFoods) {
+    public Coach(Name name, List<String> excludedFoods) {
         this.name = name;
         this.excludedFoods = new ArrayList<>(excludedFoods);
         this.recommendFoods = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Coach {
     @Override
     public String toString() {
         StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString(), ResultElement.START.toString(), ResultElement.END.toString());
-        stringJoiner.add(name);
+        stringJoiner.add(name.toString());
         recommendFoods.forEach(stringJoiner::add);
         return stringJoiner.toString();
     }
