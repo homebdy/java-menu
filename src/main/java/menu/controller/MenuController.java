@@ -21,6 +21,7 @@ public class MenuController {
             menuService.addCoach(name, inputView.readExcludedFood());
         });
         menuService.recommendMenus();
+        outputView.printDays();
         outputView.printCategory(menuService.getCategories());
     }
 }

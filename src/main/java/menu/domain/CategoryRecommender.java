@@ -51,7 +51,7 @@ public class CategoryRecommender {
         StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString(), ResultElement.START.toString(), ResultElement.END.toString());
         stringJoiner.add(TITLE);
         categories.forEach(
-                (category) ->stringJoiner.add(category.toString())
+                (category) -> stringJoiner.add(category.toString())
         );
         return stringJoiner.toString();
     }
