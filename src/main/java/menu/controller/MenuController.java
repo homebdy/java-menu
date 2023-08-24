@@ -15,9 +15,7 @@ public class MenuController {
 
     public void start() {
         outputView.printStartMessage();
-        outputView.printNameMessage();
         List<Name> coaches = inputView.readNames();
-        outputView.printNewLine();
         coaches.forEach(name -> {
             outputView.printExcludedFood(name.toString());
             menuService.addCoach(name, inputView.readExcludedFood());
