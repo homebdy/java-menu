@@ -1,7 +1,8 @@
 package menu.domain;
 
+import menu.constant.Category;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Coaches {
@@ -13,8 +14,8 @@ public class Coaches {
         coaches.add(new Coach(name, excludedFoods));
     }
 
-    public List<Coach> getCoaches() {
-        return Collections.unmodifiableList(coaches);
+    public void recommendMenu(Category category) {
+        coaches.forEach(coach -> coach.recommendFoods(category));
     }
 
     @Override

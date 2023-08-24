@@ -19,12 +19,11 @@ public class MenuService {
 
     public void recommendMenus() {
         categories.getCategories()
-                .forEach(this::recommendMenuForCoaches);
+                .forEach(this::recommendMenu);
     }
 
-    private void recommendMenuForCoaches(Category category) {
-        coaches.getCoaches()
-                .forEach(coach -> coach.recommendFoods(category));
+    private void recommendMenu(Category category) {
+        coaches.recommendMenu(category);
     }
 
     public Categories getCategories() {
