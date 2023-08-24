@@ -15,7 +15,7 @@ public class CategoriesTest {
     }
 
     @Test
-    void CategoriesToString() {
+    void categoriesToString() {
         Categories categories = new Categories();
 
         assertThat(categories.toString()).contains("[ 카테고리 |");
