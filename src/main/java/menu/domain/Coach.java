@@ -12,4 +12,8 @@ public class Coach {
         this.name = name;
         this.excludedFoods = new ArrayList<>(excludedFoods);
     }
+
+    public boolean isExcludedFood(String food) {
+        return excludedFoods.contains(food);
+    }
 }
