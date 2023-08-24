@@ -4,6 +4,7 @@ import menu.constant.Days;
 import menu.constant.OutputMessage;
 import menu.constant.ResultElement;
 import menu.domain.CategoryRecommender;
+import menu.domain.Coaches;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -24,7 +25,19 @@ public class OutputView {
 
     }
 
-    public void printDays() {
+    public void printResult(CategoryRecommender categories, Coaches coaches) {
+        printMenuResultMessage();
+        printDays();
+        printCategory(categories);
+        printRecommendResult(coaches);
+        printComplete();
+    }
+
+    private void printMenuResultMessage() {
+        System.out.println(OutputMessage.MENU_RESULT);
+    }
+
+    private void printDays() {
         StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString(), ResultElement.START.toString(), ResultElement.END.toString());
         stringJoiner.add(OutputMessage.DAYS_TITLE.toString());
         Arrays.stream(Days.values())
@@ -32,19 +45,19 @@ public class OutputView {
         System.out.println(stringJoiner);
     }
 
-    public void printCategory(CategoryRecommender categories) {
+    private void printCategory(CategoryRecommender categories) {
         System.out.println(categories);
     }
 
-    public void printMenuResultMessage() {
-        System.out.println(OutputMessage.MENU_RESULT);
+    private void printRecommendResult(Coaches coaches) {
+        System.out.println(coaches);
     }
 
-    public void printComplete() {
+    private void printComplete() {
         System.out.println(OutputMessage.COMPLETE);
     }
 
-    private void printNewLine() {
+    public void printNewLine() {
         System.out.println();
     }
 }

@@ -22,7 +22,6 @@ public class MenuService {
     public void recommendMenus() {
         List<Category> categories = getRecommendCategory();
         categories.forEach(this::recommend);
-        System.out.println(coaches);
     }
 
     private void recommend(Category category) {
@@ -32,5 +31,9 @@ public class MenuService {
 
     public CategoryRecommender getCategories() {
         return categoryRecommender;
+    }
+
+    public Coaches getCoaches() {
+        return coaches;
     }
 }

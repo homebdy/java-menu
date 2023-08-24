@@ -16,15 +16,13 @@ public class MenuController {
         outputView.printStartMessage();
         outputView.printNameMessage();
         List<String> coaches = inputView.readNames();
+        outputView.printNewLine();
         coaches.forEach(name -> {
             outputView.printExcludedFood(name);
             menuService.addCoach(name, inputView.readExcludedFood());
+            outputView.printNewLine();
         });
         menuService.recommendMenus();
-
-        outputView.printMenuResultMessage();
-        outputView.printDays();
-        outputView.printCategory(menuService.getCategories());
-        outputView.printComplete();
+        outputView.printResult(menuService.getCategories(), menuService.getCoaches());
     }
 }
