@@ -29,4 +29,8 @@ public class MenuService {
         coaches.getCoaches()
                 .forEach(coach -> coach.recommendFoods(category));
     }
+
+    public CategoryRecommender getCategories() {
+        return categoryRecommender;
+    }
 }

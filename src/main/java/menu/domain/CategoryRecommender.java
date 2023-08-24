@@ -2,6 +2,7 @@ package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.constant.Category;
+import menu.constant.ResultElement;
 
 import java.util.*;
 
@@ -9,6 +10,7 @@ public class CategoryRecommender {
 
     private static final int RECOMMEND_NUMBER = 5;
     private static final int MAX_RECOMMEND_COUNT = 2;
+    private static final String TITLE = "카테고리";
 
     private final List<Category> categories;
     private final Map<Category, Integer> categoriesCount;
@@ -42,5 +44,15 @@ public class CategoryRecommender {
 
     public List<Category> getCategories() {
         return categories;
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString(), ResultElement.START.toString(), ResultElement.END.toString());
+        stringJoiner.add(TITLE);
+        categories.forEach(
+                (category) ->stringJoiner.add(category.toString())
+        );
+        return stringJoiner.toString();
     }
 }

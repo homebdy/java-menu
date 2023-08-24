@@ -1,6 +1,7 @@
 package menu.view;
 
 import menu.constant.OutputMessage;
+import menu.domain.CategoryRecommender;
 
 public class OutputView {
 
@@ -16,6 +17,10 @@ public class OutputView {
     public void printExcludedFood(String name) {
         System.out.printf(OutputMessage.EXCLUDED_FOOD.toString(), name);
 
+    }
+
+    public void printCategory(CategoryRecommender categories) {
+        System.out.println(categories);
     }
 
     private void printNewLine() {

@@ -24,4 +24,9 @@ public enum Category {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INCORRECT_RECOMMEND.toString()));
     }
+
+    @Override
+    public String toString() {
+        return type;
+    }
 }
