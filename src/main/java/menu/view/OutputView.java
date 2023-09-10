@@ -1,6 +1,11 @@
 package menu.view;
 
+import menu.constant.Days;
 import menu.constant.OutputMessage;
+import menu.constant.ResultElement;
+
+import java.util.Arrays;
+import java.util.StringJoiner;
 
 public class OutputView {
 
@@ -22,7 +27,20 @@ public class OutputView {
         printNewLine();
     }
 
-    public void printResultMessage() {
-        System.out.print(OutputMessage.RECOMMEND_RESULT.getMessage());
+    public void printRecommendResult() {
+        printResultMessage();
+        printDays();
+    }
+
+    private void printResultMessage() {
+        System.out.println(OutputMessage.RECOMMEND_RESULT.getMessage());
+    }
+
+    private void printDays() {
+        StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString(), ResultElement.START.toString(), ResultElement.END.toString());
+        stringJoiner.add(OutputMessage.DAYS.getMessage());
+        Arrays.stream(Days.values())
+                .forEach((day) -> stringJoiner.add(day.toString()));
+        System.out.println(stringJoiner);
     }
 }
