@@ -20,7 +20,7 @@ public class Names {
 
     private void validateRange(List<Name> names) {
         if (!(MIN_RANGE <= names.size() && names.size() <= MAX_RANGE)) {
-            throw new IllegalArgumentException(ExceptionMessage.INCORRECT_NAME_RANGE.toString());
+            throw new IllegalArgumentException(ExceptionMessage.INCORRECT_COACH_NUMBER.toString());
         }
     }
 
