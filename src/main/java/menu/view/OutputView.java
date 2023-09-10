@@ -60,4 +60,8 @@ public class OutputView {
     private void printCompleteMessage() {
         System.out.println(OutputMessage.COMPLETE_RECOMMEND.getMessage());
     }
+
+    public void printExceptionMessage(String message) {
+        System.out.println(message);
+    }
 }
