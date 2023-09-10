@@ -11,9 +11,15 @@ public class RecommendMenu {
 
     private final List<String> menus = new ArrayList<>();
 
-    public void recommendMenu(Category category) {
+    public void recommend(Category category) {
         String recommendMenu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
+        while (isDuplicate(recommendMenu)) {
+            recommendMenu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
+        }
         menus.add(recommendMenu);
-        System.out.print(menus);
+    }
+
+    private boolean isDuplicate(String menu) {
+        return menus.contains(menu);
     }
 }

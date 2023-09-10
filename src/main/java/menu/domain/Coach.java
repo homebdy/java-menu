@@ -17,7 +17,7 @@ public class Coach {
     }
 
     public void recommendMenu(Category category) {
-        recommendMenu.recommendMenu(category);
+        recommendMenu.recommend(category);
     }
 
     public String getName() {
