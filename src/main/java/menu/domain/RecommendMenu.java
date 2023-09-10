@@ -17,14 +17,18 @@ public class RecommendMenu {
     }
 
     public void recommend(Category category) {
-        String recommendMenu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
-        while (isDuplicate(recommendMenu)) {
-            recommendMenu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
+        String menu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
+        while (isDuplicate(menu) || isExcludedMenu(menu)) {
+            menu = Randoms.shuffle(Menu.getMenuByCategory(category)).get(RECOMMEND_NUMBER);
         }
-        menus.add(recommendMenu);
+        menus.add(menu);
     }
 
     private boolean isDuplicate(String menu) {
         return menus.contains(menu);
+    }
+
+    private boolean isExcludedMenu(String menu) {
+        return !excludedMenu.canEat(menu);
     }
 }

@@ -10,4 +10,8 @@ public class ExcludedMenu {
     public void addElements(List<String> menus) {
         elements.addAll(menus);
     }
+
+    public boolean canEat(String menu) {
+        return !(elements.contains(menu));
+    }
 }
