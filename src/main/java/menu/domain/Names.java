@@ -3,6 +3,7 @@ package menu.domain;
 import menu.constant.ExceptionMessage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Names {
@@ -21,5 +22,9 @@ public class Names {
         if (!(MIN_RANGE <= names.size() && names.size() <= MAX_RANGE)) {
             throw new IllegalArgumentException(ExceptionMessage.INCORRECT_NAME_RANGE.toString());
         }
+    }
+
+    public List<Name> getElements() {
+        return Collections.unmodifiableList(elements);
     }
 }

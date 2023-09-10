@@ -1,6 +1,6 @@
 package menu.controller;
 
-import menu.domain.Names;
+import menu.domain.Coaches;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -11,10 +11,10 @@ public class MenuController {
 
     public void start() {
         outputView.printStart();
-        Names names = readNames();
+        Coaches coaches = readNames();
     }
 
-    private Names readNames() {
+    private Coaches readNames() {
         outputView.printCoachNames();
         return inputView.readNames();
     }
