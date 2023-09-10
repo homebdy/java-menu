@@ -21,4 +21,8 @@ public class OutputView {
         System.out.printf(OutputMessage.READ_EXCLUDED_MENU.getMessage(), name);
         printNewLine();
     }
+
+    public void printResultMessage() {
+        System.out.print(OutputMessage.RECOMMEND_RESULT.getMessage());
+    }
 }
