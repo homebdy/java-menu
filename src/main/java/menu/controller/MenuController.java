@@ -24,7 +24,7 @@ public class MenuController {
         coaches.getCoaches()
                 .forEach(coach -> {
                     outputView.printExcludedMenu(coach.getName());
-                    inputView.readExcludedMenu();
+                    coach.addExcludedMenu(inputView.readExcludedMenu());
                 });
     }
 }
