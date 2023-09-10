@@ -5,7 +5,7 @@ import java.util.List;
 public class Coach {
 
     private final Name name;
-    private final ExcludedMenu excludedMenu = new ExcludedMenu();
+
     private final RecommendMenu recommendMenu = new RecommendMenu();
 
     public Coach(Name name) {
@@ -13,7 +13,7 @@ public class Coach {
     }
 
     public void addExcludedMenu(List<String> menu) {
-        excludedMenu.addElements(menu);
+        recommendMenu.addExcludedMenu(menu);
     }
 
     public void recommendMenu(Category category) {
