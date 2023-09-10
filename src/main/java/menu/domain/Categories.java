@@ -3,6 +3,7 @@ package menu.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Categories {
@@ -16,7 +17,6 @@ public class Categories {
 
     public Categories() {
         this.elements = recommendCategory();
-        System.out.print(elements);
     }
 
     private List<Category> recommendCategory() {
@@ -40,5 +40,9 @@ public class Categories {
         return categories.stream()
                 .filter(category -> category == recommendCategory)
                 .count() >= MAX_RECOMMEND_COUNT;
+    }
+
+    public List<Category> getElements() {
+        return Collections.unmodifiableList(elements);
     }
 }

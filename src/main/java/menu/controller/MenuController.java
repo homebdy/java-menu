@@ -1,6 +1,7 @@
 package menu.controller;
 
 import menu.domain.Coaches;
+import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -11,7 +12,8 @@ public class MenuController {
 
     public void start() {
         outputView.printStart();
-        readCoaches();
+        MenuService menuService = new MenuService(readCoaches());
+        menuService.recommend();
     }
 
     private Coaches readCoaches() {

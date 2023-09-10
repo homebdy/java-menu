@@ -15,6 +15,10 @@ public class Coaches {
                 .collect(Collectors.toList());
     }
 
+    public void recommendByCategory(Category category) {
+        coaches.forEach(coach -> coach.recommendMenu(category));
+    }
+
     public List<Coach> getCoaches() {
         return Collections.unmodifiableList(coaches);
     }
