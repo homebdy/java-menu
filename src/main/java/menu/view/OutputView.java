@@ -16,4 +16,9 @@ public class OutputView {
     public void printNewLine() {
         System.out.println();
     }
+
+    public void printExcludedMenu(String name) {
+        System.out.printf(OutputMessage.READ_EXCLUDED_MENU.getMessage(), name);
+        printNewLine();
+    }
 }

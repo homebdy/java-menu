@@ -12,10 +12,19 @@ public class MenuController {
     public void start() {
         outputView.printStart();
         Coaches coaches = readNames();
+        readExcludedFood(coaches);
     }
 
     private Coaches readNames() {
         outputView.printCoachNames();
         return inputView.readNames();
+    }
+
+    private void readExcludedFood(Coaches coaches) {
+        coaches.getCoaches()
+                .forEach(coach -> {
+                    outputView.printExcludedMenu(coach.getName());
+                    inputView.readExcludedMenu();
+                });
     }
 }
