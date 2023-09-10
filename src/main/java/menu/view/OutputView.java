@@ -3,6 +3,7 @@ package menu.view;
 import menu.constant.Days;
 import menu.constant.OutputMessage;
 import menu.constant.ResultElement;
+import menu.domain.Categories;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -27,9 +28,10 @@ public class OutputView {
         printNewLine();
     }
 
-    public void printRecommendResult() {
+    public void printRecommendResult(Categories categories) {
         printResultMessage();
         printDays();
+        printCategories(categories);
     }
 
     private void printResultMessage() {
@@ -42,5 +44,9 @@ public class OutputView {
         Arrays.stream(Days.values())
                 .forEach((day) -> stringJoiner.add(day.toString()));
         System.out.println(stringJoiner);
+    }
+
+    private void printCategories(Categories categories) {
+        System.out.println(categories.getCategories());
     }
 }

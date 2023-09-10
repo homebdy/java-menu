@@ -14,6 +14,7 @@ public class MenuController {
         outputView.printStart();
         MenuService menuService = new MenuService(readCoaches());
         menuService.recommend();
+        outputView.printRecommendResult(menuService.getCategories());
     }
 
     private Coaches readCoaches() {

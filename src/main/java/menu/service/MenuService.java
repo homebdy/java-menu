@@ -6,18 +6,19 @@ import menu.domain.Coaches;
 public class MenuService {
 
     private final Coaches coaches;
+    private final Categories categories;
 
     public MenuService(Coaches coaches) {
         this.coaches = coaches;
+        this.categories = new Categories();
     }
 
     public void recommend() {
-        Categories categories = recommendCategory();
         categories.getElements()
                 .forEach(coaches::recommendByCategory);
     }
 
-    private Categories recommendCategory() {
-        return new Categories();
+    public Categories getCategories() {
+        return categories;
     }
 }

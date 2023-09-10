@@ -7,7 +7,8 @@ public enum OutputMessage {
     READ_EXCLUDED_MENU("%s(이)가 못 먹는 메뉴를 입력해 주세요."),
     RECOMMEND_RESULT("메뉴 추천 결과입니다."),
     COMPLETE_RECOMMEND("추천을 완료했습니다."),
-    DAYS("구분");
+    DAYS("구분"),
+    CATEGORIES("카테고리");
 
     private final String message;
 

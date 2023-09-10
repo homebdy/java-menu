@@ -1,10 +1,10 @@
 package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.constant.OutputMessage;
+import menu.constant.ResultElement;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Categories {
 
@@ -44,5 +44,17 @@ public class Categories {
 
     public List<Category> getElements() {
         return Collections.unmodifiableList(elements);
+    }
+
+    public String getCategories() {
+        String delimiter = ResultElement.DELIMITER.toString();
+        String start = ResultElement.START.toString();
+        String end = ResultElement.END.toString();
+
+        StringJoiner stringJoiner = new StringJoiner(delimiter, start, end);
+
+        stringJoiner.add(OutputMessage.CATEGORIES.getMessage());
+        elements.forEach(element -> stringJoiner.add(element.toString()));
+        return stringJoiner.toString();
     }
 }
