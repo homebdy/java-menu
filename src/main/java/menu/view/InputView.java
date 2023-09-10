@@ -2,6 +2,7 @@ package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import menu.domain.Name;
+import menu.domain.Names;
 import menu.validator.InputValidator;
 
 import java.util.List;
@@ -12,11 +13,12 @@ public class InputView {
 
     private final InputValidator inputValidator = new InputValidator();
 
-    public List<Name> readNames() {
-        String names = Console.readLine();
-        inputValidator.validateDelimiter(names);
-        return Stream.of(names.split(","))
+    public Names readNames() {
+        String input = Console.readLine();
+        inputValidator.validateDelimiter(input);
+        List<Name> names = Stream.of(input.split(","))
                 .map(Name::new)
                 .collect(Collectors.toList());
+        return new Names(names);
     }
 }

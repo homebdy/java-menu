@@ -1,9 +1,8 @@
 package menu.controller;
 
+import menu.domain.Names;
 import menu.view.InputView;
 import menu.view.OutputView;
-
-import java.util.List;
 
 public class MenuController {
 
@@ -12,11 +11,11 @@ public class MenuController {
 
     public void start() {
         outputView.printStart();
-        readNames();
+        Names names = readNames();
     }
 
-    private void readNames() {
+    private Names readNames() {
         outputView.printCoachNames();
-        List<String> names = inputView.readNames();
+        return inputView.readNames();
     }
 }
