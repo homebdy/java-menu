@@ -34,6 +34,7 @@ public class OutputView {
         printDays();
         printCategories(categories);
         printCoaches(coaches);
+        printCompleteMessage();
     }
 
     private void printResultMessage() {
@@ -54,5 +55,9 @@ public class OutputView {
 
     private void printCoaches(Coaches coaches) {
         System.out.println(coaches.getRecommend());
+    }
+
+    private void printCompleteMessage() {
+        System.out.println(OutputMessage.COMPLETE_RECOMMEND.getMessage());
     }
 }
