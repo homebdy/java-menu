@@ -2,7 +2,6 @@ package menu.domain;
 
 import menu.constant.ResultElement;
 
-import java.util.List;
 import java.util.StringJoiner;
 
 public class Coach {
@@ -13,10 +12,6 @@ public class Coach {
 
     public Coach(Name name) {
         this.name = name;
-    }
-
-    public void addExcludedMenu(List<String> menu) {
-        recommendMenu.addExcludedMenu(menu);
     }
 
     public void recommendMenu(Category category) {
@@ -37,5 +32,9 @@ public class Coach {
         stringJoiner.add(name.getValue());
         stringJoiner.add(recommendMenu.getMenus());
         return stringJoiner.toString();
+    }
+
+    public void addExcludedMenu(ExcludedMenu excludedMenu) {
+        recommendMenu.addExcludedMenu(excludedMenu);
     }
 }

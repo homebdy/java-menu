@@ -11,15 +11,10 @@ public class MenuController {
     private final InputView inputView = new InputView();
 
     public void start() {
-        try {
-            outputView.printStart();
-            MenuService menuService = new MenuService(readCoaches());
-            menuService.recommend();
-            outputView.printRecommendResult(menuService.getCategories(), menuService.getCoaches());
-        } catch (IllegalArgumentException exception) {
-            outputView.printExceptionMessage(exception.getMessage());
-        }
-
+        outputView.printStart();
+        MenuService menuService = new MenuService(readCoaches());
+        menuService.recommend();
+        outputView.printRecommendResult(menuService.getCategories(), menuService.getCoaches());
     }
 
     private Coaches readCoaches() {

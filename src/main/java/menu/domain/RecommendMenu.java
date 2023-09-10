@@ -12,10 +12,10 @@ public class RecommendMenu {
     private static final int RECOMMEND_NUMBER = 0;
 
     private final List<String> menus = new ArrayList<>();
-    private final ExcludedMenu excludedMenu = new ExcludedMenu();
+    private ExcludedMenu excludedMenu;
 
-    public void addExcludedMenu(List<String> menu) {
-        excludedMenu.addElements(menu);
+    public void addExcludedMenu(ExcludedMenu excludedMenu) {
+        this.excludedMenu = excludedMenu;
     }
 
     public void recommend(Category category) {

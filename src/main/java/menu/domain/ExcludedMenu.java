@@ -9,11 +9,11 @@ public class ExcludedMenu {
 
     private static final int MAX_SIZE = 2;
 
-    private final List<String> elements = new ArrayList<>();
+    private final List<String> elements;
 
-    public void addElements(List<String> menus) {
-        validateSize(menus);
-        elements.addAll(menus);
+    public ExcludedMenu(List<String> elements) {
+        validateSize(elements);
+        this.elements = new ArrayList<>(elements);
     }
 
     private void validateSize(List<String> menus) {

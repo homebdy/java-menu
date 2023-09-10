@@ -2,6 +2,7 @@ package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import menu.domain.Coaches;
+import menu.domain.ExcludedMenu;
 import menu.domain.Name;
 import menu.domain.Names;
 import menu.validator.InputValidator;
@@ -18,7 +19,6 @@ public class InputView {
     private final InputValidator inputValidator = new InputValidator();
 
     public Coaches readNames() {
-
         return attemptedInput(
                 () -> {
                     String input = Console.readLine();
@@ -31,13 +31,14 @@ public class InputView {
         );
     }
 
-    public List<String> readExcludedMenu() {
+    public ExcludedMenu readExcludedMenu() {
         return attemptedInput(
                 () -> {
                     String input = Console.readLine();
                     inputValidator.validateDelimiter(input);
-                    return Stream.of(input.split(REGEX))
+                    List<String> excludedMenu = Stream.of(input.split(REGEX))
                             .collect(Collectors.toList());
+                    return new ExcludedMenu(excludedMenu);
                 }
         );
     }
