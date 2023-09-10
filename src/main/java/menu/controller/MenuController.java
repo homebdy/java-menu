@@ -11,8 +11,13 @@ public class MenuController {
 
     public void start() {
         outputView.printStart();
+        readCoaches();
+    }
+
+    private Coaches readCoaches() {
         Coaches coaches = readNames();
         readExcludedFood(coaches);
+        return coaches;
     }
 
     private Coaches readNames() {
