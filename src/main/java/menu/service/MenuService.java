@@ -21,4 +21,8 @@ public class MenuService {
     public Categories getCategories() {
         return categories;
     }
+
+    public Coaches getCoaches() {
+        return coaches;
+    }
 }

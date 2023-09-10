@@ -4,6 +4,7 @@ import menu.constant.Days;
 import menu.constant.OutputMessage;
 import menu.constant.ResultElement;
 import menu.domain.Categories;
+import menu.domain.Coaches;
 
 import java.util.Arrays;
 import java.util.StringJoiner;
@@ -28,10 +29,11 @@ public class OutputView {
         printNewLine();
     }
 
-    public void printRecommendResult(Categories categories) {
+    public void printRecommendResult(Categories categories, Coaches coaches) {
         printResultMessage();
         printDays();
         printCategories(categories);
+        printCoaches(coaches);
     }
 
     private void printResultMessage() {
@@ -48,5 +50,9 @@ public class OutputView {
 
     private void printCategories(Categories categories) {
         System.out.println(categories.getCategories());
+    }
+
+    private void printCoaches(Coaches coaches) {
+        System.out.println(coaches.getRecommend());
     }
 }

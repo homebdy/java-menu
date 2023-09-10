@@ -1,9 +1,11 @@
 package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.constant.ResultElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class RecommendMenu {
 
@@ -30,5 +32,12 @@ public class RecommendMenu {
 
     private boolean isExcludedMenu(String menu) {
         return !excludedMenu.canEat(menu);
+    }
+
+    public String getMenus() {
+        StringJoiner stringJoiner = new StringJoiner(ResultElement.DELIMITER.toString());
+
+        menus.forEach(stringJoiner::add);
+        return stringJoiner.toString();
     }
 }

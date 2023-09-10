@@ -4,7 +4,8 @@ public enum ResultElement {
 
     START("[ "),
     END(" ]"),
-    DELIMITER(" | ");
+    DELIMITER(" | "),
+    NEW_LINE("\n");
 
 
     private final String element;

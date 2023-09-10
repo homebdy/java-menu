@@ -1,6 +1,9 @@
 package menu.domain;
 
+import menu.constant.ResultElement;
+
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Coach {
 
@@ -22,5 +25,17 @@ public class Coach {
 
     public String getName() {
         return name.getValue();
+    }
+
+    public String getRecommendMenu() {
+        String delimiter = ResultElement.DELIMITER.toString();
+        String start = ResultElement.START.toString();
+        String end = ResultElement.END.toString();
+
+        StringJoiner stringJoiner = new StringJoiner(delimiter, start, end);
+
+        stringJoiner.add(name.getValue());
+        stringJoiner.add(recommendMenu.getMenus());
+        return stringJoiner.toString();
     }
 }
