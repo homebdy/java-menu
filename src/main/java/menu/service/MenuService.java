@@ -1,9 +1,6 @@
 package menu.service;
 
-import menu.domain.Coach;
-import menu.domain.Coaches;
-import menu.domain.ForbiddenFood;
-import menu.domain.Name;
+import menu.domain.*;
 
 public class MenuService {
 
@@ -11,5 +8,9 @@ public class MenuService {
 
     public void addCoach(Name name, ForbiddenFood forbiddenFood) {
         coaches.addCoach(new Coach(name, forbiddenFood));
+    }
+
+    public void recommend() {
+        Categories categories = new Categories();
     }
 }

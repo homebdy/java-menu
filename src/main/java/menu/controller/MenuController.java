@@ -19,6 +19,7 @@ public class MenuController {
         outputView.printStartService();
         Names names = readNames();
         addCoach(names);
+        menuService.recommend();
     }
 
     private Names readNames() {
