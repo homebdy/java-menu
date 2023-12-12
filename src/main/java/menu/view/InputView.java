@@ -1,12 +1,12 @@
 package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import menu.domain.ForbiddenFood;
 import menu.domain.Name;
 import menu.domain.Names;
 import menu.validator.InputValidator;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -21,10 +21,10 @@ public class InputView {
                 .collect(Collectors.toList()));
     }
 
-    public List<String> readForbiddenFood() {
+    public ForbiddenFood readForbiddenFood() {
         String input = Console.readLine();
         validator.validateDelimiter(input);
-        return Arrays.stream(input.split(","))
-                .collect(Collectors.toList());
+        return new ForbiddenFood(Arrays.stream(input.split(","))
+                .collect(Collectors.toList()));
     }
 }
