@@ -25,4 +25,8 @@ public enum Category {
                 .findAny()
                 .orElseThrow(() -> new IllegalStateException(ExceptionMessage.INVALID_CATEGORY.getMessage()));
     }
+
+    public String getValue() {
+        return value;
+    }
 }

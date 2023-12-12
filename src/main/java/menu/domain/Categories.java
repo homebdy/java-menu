@@ -2,10 +2,12 @@ package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.constant.Day;
+import menu.constant.OutputMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Categories {
 
@@ -39,5 +41,15 @@ public class Categories {
 
     public List<Category> getCategories() {
         return Collections.unmodifiableList(elements);
+    }
+
+    public String getCategoriesResult() {
+        OutputMessage start = OutputMessage.RESULT_START;
+        OutputMessage end = OutputMessage.RESULT_END;
+        OutputMessage delimiter = OutputMessage.RESULT_DELIMITER;
+        StringJoiner stringJoiner = new StringJoiner(delimiter.getMessage(), start.getMessage(), end.getMessage());
+        stringJoiner.add(OutputMessage.CATEGORY.getMessage());
+        elements.forEach(element -> stringJoiner.add(element.getValue()));
+        return stringJoiner.toString();
     }
 }

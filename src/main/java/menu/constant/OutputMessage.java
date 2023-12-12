@@ -10,7 +10,8 @@ public enum OutputMessage {
     RESULT_END(" ]"),
     RESULT_DELIMITER(" | "),
     RESULT_PRINT("메뉴 추천 결과입니다."),
-    NEW_LINE("\n");
+    NEW_LINE("\n"),
+    CATEGORY("카테고리");
 
     private final String message;
 
