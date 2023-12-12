@@ -7,6 +7,8 @@ import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
 
+import java.util.function.Supplier;
+
 public class MenuController {
 
     private final OutputView outputView = new OutputView();
@@ -16,22 +18,36 @@ public class MenuController {
     public void start() {
         outputView.printStartService();
         Names names = readNames();
-        readForbiddenFood(names);
+        addCoach(names);
     }
 
     private Names readNames() {
-        outputView.printReadNameMessage();
-        return inputView.readNames();
+        return attemptedRead(() -> {
+            outputView.printReadNameMessage();
+            return inputView.readNames();
+        });
     }
 
-    private void readForbiddenFood(Names names) {
+    private void addCoach(Names names) {
         names.getElements()
-                .forEach(this::addCoach);
+                .forEach(name -> menuService.addCoach(name, readForbiddenFoodForEachCoach(name)));
     }
 
-    private void addCoach(Name name) {
-        outputView.printReadForbiddenFoodMessage(name);
-        ForbiddenFood forbiddenFood = inputView.readForbiddenFood();
-        menuService.addCoach(name, forbiddenFood);
+    private ForbiddenFood readForbiddenFoodForEachCoach(Name name) {
+        return attemptedRead(() -> {
+            outputView.printReadForbiddenFoodMessage(name);
+            ForbiddenFood forbiddenFood = inputView.readForbiddenFood();
+            return forbiddenFood;
+        });
+
+    }
+
+    private <T> T attemptedRead(Supplier<T> supplier) {
+        try {
+            return supplier.get();
+        } catch (IllegalArgumentException exception) {
+            outputView.printExceptionMessage(exception.getMessage());
+            return supplier.get();
+        }
     }
 }

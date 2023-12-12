@@ -17,4 +17,8 @@ public class OutputView {
         System.out.printf(OutputMessage.READ_FORBIDDEN_FOOD.getMessage(), name.getValue());
         System.out.println();
     }
+
+    public void printExceptionMessage(String message) {
+        System.out.println(message);
+    }
 }
