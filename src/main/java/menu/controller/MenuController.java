@@ -1,9 +1,9 @@
 package menu.controller;
 
-import menu.domain.Coach;
 import menu.domain.ForbiddenFood;
 import menu.domain.Name;
 import menu.domain.Names;
+import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -11,6 +11,7 @@ public class MenuController {
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+    private final MenuService menuService = new MenuService();
 
     public void start() {
         outputView.printStartService();
@@ -25,12 +26,12 @@ public class MenuController {
 
     private void readForbiddenFood(Names names) {
         names.getElements()
-                .forEach(this::readForbiddenFooddForEachCoach);
+                .forEach(this::addCoach);
     }
 
-    private Coach readForbiddenFooddForEachCoach(Name name) {
+    private void addCoach(Name name) {
         outputView.printReadForbiddenFoodMessage(name);
-        ForbiddenFood food = inputView.readForbiddenFood();
-        return new Coach(name, food);
+        ForbiddenFood forbiddenFood = inputView.readForbiddenFood();
+        menuService.addCoach(name, forbiddenFood);
     }
 }
