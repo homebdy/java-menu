@@ -22,4 +22,8 @@ public class ForbiddenFood {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_FORBIDDEN_FOOD_NUMBER.getMessage());
         }
     }
+
+    public boolean isForbidden(String menu) {
+        return elements.contains(menu);
+    }
 }

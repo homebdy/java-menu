@@ -7,13 +7,19 @@ import java.util.List;
 
 public class RecommendFood {
 
-    private final List<String> elements = new ArrayList<>();
+    private final List<String> elements;
+    private final ForbiddenFood forbiddenFood;
+
+    public RecommendFood(ForbiddenFood forbiddenFood) {
+        elements = new ArrayList<>();
+        this.forbiddenFood = forbiddenFood;
+    }
 
     public void recommend(Category category) {
         Menu menu = Menu.getMenu(category);
         while (true) {
             String random = Randoms.shuffle(menu.getFoods()).get(0);
-            if (isNotDuplicate(random)) {
+            if (isNotDuplicate(random) && !forbiddenFood.isForbidden(random)) {
                 elements.add(random);
                 break;
             }
