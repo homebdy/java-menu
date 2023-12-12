@@ -23,6 +23,7 @@ public class InputView {
 
     public List<String> readForbiddenFood() {
         String input = Console.readLine();
+        validator.validateDelimiter(input);
         return Arrays.stream(input.split(","))
                 .collect(Collectors.toList());
     }
