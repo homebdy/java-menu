@@ -1,6 +1,7 @@
 package menu.view;
 
 import menu.constant.OutputMessage;
+import menu.domain.Name;
 
 public class OutputView {
 
@@ -10,5 +11,10 @@ public class OutputView {
 
     public void printReadNameMessage() {
         System.out.println(OutputMessage.READ_COACH_NAME.getMessage());
+    }
+
+    public void printReadForbiddenFoodMessage(Name name) {
+        System.out.printf(OutputMessage.READ_FORBIDDEN_FOOD.getMessage(), name.getValue());
+        System.out.println();
     }
 }
