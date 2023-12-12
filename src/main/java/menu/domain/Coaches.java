@@ -10,4 +10,8 @@ public class Coaches {
     public void addCoach(Coach coach) {
         elements.add(coach);
     }
+
+    public void recommendFood(Category category) {
+        elements.forEach(element -> element.recommend(category));
+    }
 }

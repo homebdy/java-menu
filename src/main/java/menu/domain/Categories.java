@@ -3,6 +3,7 @@ package menu.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Categories {
@@ -20,5 +21,9 @@ public class Categories {
             categories.add(Category.getCategory(Randoms.pickNumberInRange(1, 5)));
         }
         return categories;
+    }
+
+    public List<Category> getCategories() {
+        return Collections.unmodifiableList(elements);
     }
 }

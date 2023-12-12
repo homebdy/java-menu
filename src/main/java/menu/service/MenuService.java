@@ -12,5 +12,7 @@ public class MenuService {
 
     public void recommend() {
         Categories categories = new Categories();
+        categories.getCategories()
+                .forEach(coaches::recommendFood);
     }
 }

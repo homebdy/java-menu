@@ -1,5 +1,8 @@
 package menu.domain;
 
+import menu.constant.ExceptionMessage;
+
+import java.util.Arrays;
 import java.util.List;
 
 public enum Menu {
@@ -16,5 +19,16 @@ public enum Menu {
     Menu(Category category, List<String> foods) {
         this.category = category;
         this.foods = foods;
+    }
+
+    public static Menu getMenu(Category category) {
+        return Arrays.stream(Menu.values())
+                .filter(value -> value.category.equals(category))
+                .findAny()
+                .orElseThrow(() -> new IllegalStateException(ExceptionMessage.INVALID_MENU.getMessage()));
+    }
+
+    public List<String> getFoods() {
+        return this.foods;
     }
 }
