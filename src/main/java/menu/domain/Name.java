@@ -19,4 +19,8 @@ public class Name {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NAME_LENGTH.getMessage());
         }
     }
+
+    public String getValue() {
+        return value;
+    }
 }

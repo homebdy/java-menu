@@ -3,6 +3,7 @@ package menu.domain;
 import menu.constant.ExceptionMessage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Names {
@@ -21,5 +22,9 @@ public class Names {
         if (!(MIN_SIZE <= elements.size() && elements.size() <= MAX_SIZE)) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_COACH_NUMBER.getMessage());
         }
+    }
+
+    public List<Name> getElements() {
+        return Collections.unmodifiableList(elements);
     }
 }
