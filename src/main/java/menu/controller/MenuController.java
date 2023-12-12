@@ -20,6 +20,8 @@ public class MenuController {
         Names names = readNames();
         addCoach(names);
         menuService.recommend();
+        outputView.printResult();
+        outputView.printDay();
     }
 
     private Names readNames() {
