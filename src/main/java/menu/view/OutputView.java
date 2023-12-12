@@ -37,6 +37,10 @@ public class OutputView {
         System.out.println(coaches.getCoachesResult());
     }
 
+    public void printComplete() {
+        System.out.println(OutputMessage.RECOMMEND_COMPLETE.getMessage());
+    }
+
     public void printExceptionMessage(String message) {
         System.out.println(message);
     }

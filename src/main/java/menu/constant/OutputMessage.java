@@ -11,7 +11,8 @@ public enum OutputMessage {
     RESULT_DELIMITER(" | "),
     RESULT_PRINT("메뉴 추천 결과입니다."),
     NEW_LINE("\n"),
-    CATEGORY("카테고리");
+    CATEGORY("카테고리"),
+    RECOMMEND_COMPLETE("추천을 완료했습니다.");
 
     private final String message;
 

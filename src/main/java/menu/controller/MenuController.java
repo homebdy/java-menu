@@ -24,6 +24,7 @@ public class MenuController {
         outputView.printDay();
         outputView.printCategories(menuService.getCategories());
         outputView.printRecommend(menuService.getCoaches());
+        outputView.printComplete();
     }
 
     private Names readNames() {
