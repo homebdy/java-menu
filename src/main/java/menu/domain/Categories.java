@@ -1,7 +1,7 @@
 package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import menu.constant.MenuConstant;
+import menu.constant.Day;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +18,8 @@ public class Categories {
     }
 
     private void recommend() {
-        while (elements.size() < MenuConstant.RECOMMEND_COUNT.getValue()) {
-            Category category = Category.getCategory(Randoms.pickNumberInRange(1, 3));
+        while (elements.size() < Day.getCount()) {
+            Category category = Category.getCategory(Randoms.pickNumberInRange(1, 5));
             if (isOverTreeTimes(category)) {
                 continue;
             }
