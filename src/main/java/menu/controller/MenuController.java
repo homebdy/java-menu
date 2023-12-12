@@ -16,16 +16,23 @@ public class MenuController {
     private final MenuService menuService = new MenuService();
 
     public void start() {
-        outputView.printStartService();
+        printStartMessage();
         addCoach(readNames());
         menuService.recommend();
         printRecommendResult();
     }
 
+    public void printStartMessage() {
+        outputView.printStartService();
+        outputView.printNewLine();
+    }
+
     private Names readNames() {
         return attemptedRead(() -> {
             outputView.printReadNameMessage();
-            return inputView.readNames();
+            Names names = inputView.readNames();
+            outputView.printNewLine();
+            return names;
         });
     }
 
@@ -38,6 +45,7 @@ public class MenuController {
         return attemptedRead(() -> {
             outputView.printReadForbiddenFoodMessage(name);
             ForbiddenFood forbiddenFood = inputView.readForbiddenFood();
+            outputView.printNewLine();
             return forbiddenFood;
         });
 
