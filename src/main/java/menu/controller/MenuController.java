@@ -17,14 +17,9 @@ public class MenuController {
 
     public void start() {
         outputView.printStartService();
-        Names names = readNames();
-        addCoach(names);
+        addCoach(readNames());
         menuService.recommend();
-        outputView.printResult();
-        outputView.printDay();
-        outputView.printCategories(menuService.getCategories());
-        outputView.printRecommend(menuService.getCoaches());
-        outputView.printComplete();
+        printRecommendResult();
     }
 
     private Names readNames() {
@@ -48,6 +43,13 @@ public class MenuController {
 
     }
 
+    private void printRecommendResult() {
+        outputView.printResult();
+        outputView.printDay();
+        outputView.printCategories(menuService.getCategories());
+        outputView.printRecommend(menuService.getCoaches());
+        outputView.printComplete();
+    }
     private <T> T attemptedRead(Supplier<T> supplier) {
         try {
             return supplier.get();
