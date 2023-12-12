@@ -15,4 +15,8 @@ public class MenuService {
         categories.getCategories()
                 .forEach(coaches::recommendFood);
     }
+
+    public Coaches getCoaches() {
+        return coaches;
+    }
 }

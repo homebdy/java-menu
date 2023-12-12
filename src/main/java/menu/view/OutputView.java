@@ -2,6 +2,7 @@ package menu.view;
 
 import menu.constant.Day;
 import menu.constant.OutputMessage;
+import menu.domain.Coaches;
 import menu.domain.Name;
 
 public class OutputView {
@@ -25,6 +26,10 @@ public class OutputView {
 
     public void printDay() {
         System.out.println(Day.getValues());
+    }
+
+    public void printRecommend(Coaches coaches) {
+        System.out.println(coaches.getCoachesResult());
     }
 
     public void printExceptionMessage(String message) {

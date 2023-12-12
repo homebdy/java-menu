@@ -9,7 +9,8 @@ public enum OutputMessage {
     RESULT_START("[ "),
     RESULT_END(" ]"),
     RESULT_DELIMITER(" | "),
-    RESULT_PRINT("메뉴 추천 결과입니다.");
+    RESULT_PRINT("메뉴 추천 결과입니다."),
+    NEW_LINE("\n");
 
     private final String message;
 

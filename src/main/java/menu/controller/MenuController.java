@@ -22,6 +22,7 @@ public class MenuController {
         menuService.recommend();
         outputView.printResult();
         outputView.printDay();
+        outputView.printRecommend(menuService.getCoaches());
     }
 
     private Names readNames() {
