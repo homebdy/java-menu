@@ -11,6 +11,16 @@ public class RecommendFood {
 
     public void recommend(Category category) {
         Menu menu = Menu.getMenu(category);
-        elements.add(Randoms.shuffle(menu.getFoods()).get(0));
+        while (true) {
+            String random = Randoms.shuffle(menu.getFoods()).get(0);
+            if (isNotDuplicate(random)) {
+                elements.add(random);
+                break;
+            }
+        }
+    }
+
+    private boolean isNotDuplicate(String menu) {
+        return !elements.contains(menu);
     }
 }
